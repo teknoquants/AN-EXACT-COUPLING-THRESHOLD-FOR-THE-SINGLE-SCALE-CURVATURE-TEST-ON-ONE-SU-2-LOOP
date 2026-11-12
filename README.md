@@ -3,7 +3,7 @@
 Companion code to the white paper by R. Cooperman and A.E. Petrunina V.V. (XISOSIS, Vienna, 12 November 2026).
 Released under the MIT License (see `LICENSE`; the licence is also reproduced at the top of every script).
 
-GitHub: [GITHUB REPOSITORY URL — placeholder] · DOI: [DOI — placeholder]
+GitHub: https://github.com/teknoquants/AN-EXACT-COUPLING-THRESHOLD-FOR-THE-SINGLE-SCALE-CURVATURE-TEST-ON-ONE-SU-2-LOOP · DOI: https://doi.org/10.5281/zenodo.24168254
 
 ## Run
 
