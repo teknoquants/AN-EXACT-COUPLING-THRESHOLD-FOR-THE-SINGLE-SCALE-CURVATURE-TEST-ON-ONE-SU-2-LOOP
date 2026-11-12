@@ -1,0 +1,87 @@
+
+=== Definitions 1-5 ===
+  [PASS] D1 orthonormal basis; Ric = g_met on su(2)
+  [PASS] D2 orbit of +-1 is a point; regular orbits are 2-dimensional with radial horizontal line
+  [PASS] D3 Z_g = 2 g^2 I_1(1/g^2); mu_g probability; beta = 1/(2 g^2)  (g=2.0: Z_g=1.007833; g=1.0: Z_g=1.130318; g=0.6: Z_g=2.329576)
+  [PASS] D4 2 Hess V_0 = x/g^2 in radial and tangential directions; kappa_0 = optimal kappa(0) of the flow code  (max deviation 1.6e-07)
+  [PASS] D5 C_kappa = 1/kappa for constant kappa > 0; unbounded for kappa <= 0
+  -> Definitions: 5/5 checks passed
+
+=== Lemma 1 and Lemma 2 - Hessian of x; adverse configuration ===
+  [PASS] (a) X^2 = -(1/2)|X|^2 1 on su(2)
+  [PASS] (b) d^2/ds^2 x(U e^{sX}) = -(|X|^2/2) x(U e^{sX}); geodesic of constant speed  (max error 1.4e-09)
+  [PASS] (c) Hess x = -(x/2) g_met (quadratic form and polarization)  (max error 3.2e-10)
+  [PASS] (d) Laplacian x = -(3/2) x  (max error 7.6e-10)
+  [PASS] (e) control: for SU(3), Hess Re Tr is not a multiple of the metric  (spread of the quadratic form over an orthonormal basis: 0.210)
+  [PASS] (f) exp(sX) formula for unit X; x(-exp(sX)) = -cos(s/sqrt2)
+  [PASS] (g) d^2/ds^2 log Omega_g(U(s)) at 0 = 1/(2 g^2) (symbolic and finite differences)  (max FD error 9.1e-11)
+  [PASS] (h) conjugation fixes -1: zero orbit tangent space, every direction horizontal
+  [PASS] (i) constant weight: zero Hessian; Wilson weight: largest Hessian where the weight is smallest
+  -> Lemmas 1-2: 9/9 checks passed
+
+=== Theorem 3 and Corollary 4 - exact threshold; classical tensor ===
+  [PASS] (i) T_0 = Ric - 2 Hess log Omega_g = (1 + x/g^2) g_met on all vectors  (max error 1.0e-09)
+  [PASS] (ii) kappa_0(g) = 1 - 1/g^2, attained only at U = -1; equals the optimal kappa(0) of the flow code
+  [PASS] (iii) positive iff g > 1; zero at -1 when g = 1; negative exactly on {x < -g^2} when g < 1  (g=0.3: Haar 0.440, mu_g 1.42e-05; g=0.6: Haar 0.276, mu_g 2.32e-02; g=0.9: Haar 0.047, mu_g 1.32e-02)
+  [PASS] (iv) control: kappa(0) = kappa_0 + delta violates (H) at -1
+  [PASS] (v) B_0 = (1 + x/(2 g^2)) g_met; kappa_BE = 1 - 1/(2 g^2) > 0 iff g > 1/sqrt2  (max error 4.2e-10)
+  [PASS] (vi) Bakry-Emery inequality on all functions (sectors ell = 0, 1, 2) for g > 1/sqrt2  (g=0.72: max optimal 0.5745 <= 28.1739; g=0.75: max optimal 0.5864 <= 9.0000; g=0.8: max optimal 0.6026 <= 4.5714; g=0.9: max optimal 0.6249 <= 2.6129 ...)
+  [PASS] (vii) for 1/sqrt2 < g <= 1: classical test succeeds, kappa_0(g) <= 0
+  [PASS] (viii) horizontal and full lower bounds coincide at the initial scale
+  -> Theorem 3 / Corollary 4: 8/8 checks passed
+
+=== Proposition 5 - direct comparison ===
+  [PASS] (a) bounds on Omega_g and max/min = e^{2/g^2}
+  [PASS] (b) Var_mu(f) = inf_a int (f - a)^2 dmu
+  [PASS] (c) Haar Poincare constant 2/3 (first eigenvalue 3/2); weaker value 1 also valid  (sectors ell=0,1,2: 0.6667, 0.6667, 0.2500)
+  [PASS] (d) every inequality of the chain, 100 random functions per coupling  (g=2.0: max Var/bound 0.604; g=1.25: max Var/bound 0.271; g=1.0: max Var/bound 0.127; g=0.8: max Var/bound 0.0377; g=0.6: max Var/bound 0.0025; g=0.5: max Var/bound 0.000161)
+  [PASS] (e) optimal constants on class and non-invariant sectors <= (2/3) e^{2/g^2} <= e^{2/g^2}  (g=2.0: 0.6648 <= 1.099; g=1.25: 0.6548 <= 2.398; g=1.0: 0.6385 <= 4.926; g=0.8: 0.6026 <= 15.17; g=0.6: 0.5042 <= 172.4; g=0.5: 0.4100 <= 1987)
+  [PASS] (f) finite for every g, deteriorating as g decreases, including where kappa_0(g) <= 0
+  -> Proposition 5: 6/6 checks passed
+
+=== Proposition 6 and Corollary 7 - the criterion succeeds; two meanings of 'necessary' ===
+  [PASS] (a) z_t > 0 and z_t -> Z_g in C^2 at rate >= 3/2  (g=2.0: rate 1.498; g=1.0: rate 1.500; g=0.8: rate 1.500; g=0.6: rate 1.500; g=0.5: rate 1.500)
+  [PASS] (b) kappa_g continuous, kappa_g(0) = 1 - 1/g^2, kappa_g(t) -> 1  (g=2.0: kappa(0)=+0.750, kappa(12)=1.00000; g=1.0: kappa(0)=+0.000, kappa(12)=1.00000; g=0.8: kappa(0)=-0.562, kappa(12)=1.00000; g=0.6: kappa(0)=-1.778, kappa(12)=1.00000; g=0.5: kappa(0)=-3.000, kappa(12)=1.00000)
+  [PASS] (c) C_kappa finite and stable under refinement  (g=2.0: C=1.1636; g=1.0: C=2.0777; g=0.8: C=3.7413; g=0.6: C=21.944; g=0.5: C=221.9)
+  [PASS] (d) g <= 1: kappa(0) <= 0; a profile <= 0 on [0,T] gives a partial constant >= 2T
+  [PASS] (e) the profile becomes positive on a set of scales of positive measure  (g=1.0: kappa > 0 for all t > 0; g=0.8: kappa > 0 from t = 0.487; g=0.6: kappa > 0 from t = 0.837; g=0.5: kappa > 0 from t = 0.996)
+  [PASS] (f) absolute necessity false: explicit finite Poincare constant without multiscale analysis  (g=1.0: optimal 0.6385 <= 4.926; g=0.8: optimal 0.6026 <= 15.17; g=0.6: optimal 0.5042 <= 172.4; g=0.5: optimal 0.4100 <= 1987)
+  [PASS] (g) relative necessity: finite multiscale constant with kappa(0) <= 0, bounding the optimal constant  (g=1.0: optimal 0.6251 <= C_kappa 2.078; g=0.8: optimal 0.5737 <= C_kappa 3.741; g=0.6: optimal 0.4423 <= C_kappa 21.94; g=0.5: optimal 0.3278 <= C_kappa 221.9)
+  -> Proposition 6 / Corollary 7: 7/7 checks passed
+
+=== Proposition 8 - finite lattices ===
+  [PASS] (a) (Z) holds on open boxes (all plaquettes = -1); control: (Z) fails on the 3x3 torus  (7 boxes; torus solvable: False)
+  [PASS] (b) (1/2)Tr exp(W) = cos(|W|/sqrt2); x(U_p(s)) = -1 + (s^2/4)|(d_1A)_p|^2 + O(s^3)  (max |remainder|/s^3 = 3.28)
+  [PASS] (c) Hess log Omega_g and T_0 at U0 (finite differences)  (max rel error 2.5e-10)
+  [PASS] (d) orbit tangent at U0 is d_0 X; d_1 d_0 = 0  (max error 8.9e-06)
+  [PASS] (e) top eigenvector is horizontal and T_0(A,A) = 1 - lambda_max/g^2; test fails iff g^2 <= lambda_max there  (max error 9.9e-10)
+  [PASS] (f) 4 <= lambda_max <= 8(d-1)  (1x1: 4.000; 2x1: 5.000; 2x2: 6.000; 3x3: 6.828; 1x1x1: 6.000; 2x1x1: 7.000; 2x2x1: 8.000)
+  [PASS] (g) quoted values 4, 5, 6, 6.83, 7.24, 7.84 for 2D boxes
+  [PASS] (h) one loop: d_1 = (1), lambda_max = 1, threshold g <= 1
+  -> Proposition 8: 8/8 checks passed
+
+=== Remark 9 - numerical comparison ===
+      g=2.0000: C=1.1636, direct=1.0991, optimal=0.6639
+      g=1.4142: C=1.3801, direct=1.8122, optimal=0.6557
+      g=1.0000: C=2.0777, direct=4.926, optimal=0.6251
+      g=0.7071: C=6.5523, direct=36.399, optimal=0.5271
+      g=0.5000: C=221.9, direct=1987.3, optimal=0.3278
+  [PASS] (a) all 30 printed table entries reproduced (optimal constant by two independent solvers)
+  [PASS] (b) the three observations in the text
+  [PASS] (c) consistent with the Wilson table of the preceding paper (beta = 1/(2 g^2))
+  -> Remark 9: 3/3 checks passed
+
+=== Summary ===
+  PASS  Definitions 1-5  (0.0 s)
+  PASS  Lemma 1 and Lemma 2 - Hessian of x; adverse configuration  (0.1 s)
+  PASS  Theorem 3 and Corollary 4 - exact threshold; classical tensor  (22.6 s)
+  PASS  Proposition 5 - direct comparison  (19.7 s)
+  PASS  Proposition 6 and Corollary 7 - the criterion succeeds; two meanings of 'necessary'  (24.8 s)
+  PASS  Proposition 8 - finite lattices  (0.1 s)
+  PASS  Remark 9 - numerical comparison  (6.8 s)
+
+Not validated: the exact threshold of the single-scale test on a lattice with more than one loop
+(Proposition 8 is one-sided: only one configuration is examined); any bound uniform in the lattice; the size
+of the multiscale constant beyond its numerical value. Statements for all functions are checked on class
+functions and on the non-invariant sectors ell = 1, 2. Passing these checks supports the proofs; it does not
+replace them.
